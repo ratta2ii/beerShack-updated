@@ -1,23 +1,46 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
-import Products from './Products';
-import NewBeerForm from './NewBeerForm';
+import BeerList from './BeerList';
+import NewBeerControl from './NewBeerControl';
 import Error404 from './Error404';
 
-function App() {
 
-  return (
-    <div>
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/products' component={Products} />
-        <Route path='/newbeer' component={NewBeerForm} /> 
-        <Route component={Error404} />
-      </Switch>
-    </div>
-  );
+class App extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      masterBeerList: [{names: "Molson", brand: "Molson", alcoholContent: "5.5%", pintsRemaining: 124, price: "$7.99"}]
+    };
+    this.handleAddingNewBeerToList = this.handleAddingNewBeerToList.bind(this);
+  }
+
+  handleAddingNewBeerToList(newBeer) {
+    var newMasterBeerList = this.state.masterBeerList.slice();
+    newMasterBeerList.push(newBeer);
+    this.setState({ masterBeerList: newMasterBeerList });
+  }
+
+  render() {
+    return (
+      <div>
+        <Switch>
+          <Route exact path='/' component={Home} />
+
+          <Route path='/beerlist' render={() => <BeerList 
+            beerList={this.state.masterBeerList} />} />
+
+          <Route path='/newbeer' render={() => <NewBeerControl 
+            onSubmitAddNewBeer={this.handleAddingNewBeerToList} />} />
+            
+          <Route component={Error404} />
+        </Switch>
+      </div>
+    );
+
+  }
 }
 
-export default App;
+
+  export default App;
