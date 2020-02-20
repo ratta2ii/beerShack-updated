@@ -1,6 +1,5 @@
 import React from 'react';
-import ConfirmationQuestions from './EmployeeAuthentication';
-import NewTicketForm from './NewBeerForm';
+import EmployeeAuthentication from './EmployeeAuthentication';
 import PropTypes from "prop-types";
 import NewBeerForm from './NewBeerForm';
 
@@ -11,6 +10,7 @@ class NewBeerControl extends React.Component {
         this.state = {
             formVisibleOnPage: false
         };
+        this.handleDisplayForm = this.handleDisplayForm.bind(this);
     }
 
     handleDisplayForm() {
@@ -23,8 +23,8 @@ class NewBeerControl extends React.Component {
             currentlyVisibleContent = <NewBeerForm
               onSubmitAddNewBeer={this.props.onSubmitAddNewBeer} />
         } else {
-            currentlyVisibleContent = <EmployeeAuthentication />
-            //   onSubmitAuthentication={this.handleDisplayForm} 
+            currentlyVisibleContent = <EmployeeAuthentication 
+              onSubmitAuthentication={this.handleDisplayForm} />
         }
 
         return (
@@ -36,7 +36,7 @@ class NewBeerControl extends React.Component {
 }
 
 NewBeerControl.proptypes = {
-    onSubmitAuthentication: PropTypes.func
+    onSubmitAddNewBeer: PropTypes.func
 }
 
 export default NewBeerControl;

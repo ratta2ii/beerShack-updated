@@ -68,7 +68,7 @@ function Beer(props) {
           <h3 style={beerName}>{props.names}</h3>
           <h4 style={beerBrand}>Brand: {props.brand}</h4>
           <h4 style={content}>Alcohol Content: <span style={contentNumber}>{props.alcoholContent}</span></h4>
-          <h4 style={content}>Remaining Pints: <span style={contentNumber}>{props.pintsRemaining}</span></h4>
+          {/* <h4 style={content}>Remaining Pints: <span style={contentNumber}>{props.pintsRemaining}</span></h4> */}
           <h4 style={content}>Price: <span style={beerPrice}>{props.price}</span></h4>
         </div>
       </div>
@@ -77,11 +77,11 @@ function Beer(props) {
 }
 
 Beer.propTypes = {
-  names: PropTypes.string.isRequired,
+  names: PropTypes.string,
   brand: PropTypes.string,
   alcoholContent: PropTypes.string,
-  pintsRemaining: PropTypes.number.isRequired,
-  price: PropTypes.string.isRequired
+  price: PropTypes.string
+  // pintsRemaining: PropTypes.number
 };
 
 

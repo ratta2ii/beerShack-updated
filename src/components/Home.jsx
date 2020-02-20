@@ -49,7 +49,7 @@ function Home() {
 
       <div>
         <h1 style={headerStyles}><span style={firstLetterB}>B</span>eer<span style={firstLetterS}>S</span>hack</h1>
-        <p><Link to="/products"><li style={entryLink} >Enter Here</li></Link></p>
+        <p><Link to="/beerlist"><li style={entryLink} >Enter Here</li></Link></p>
 
       </div> 
     </div>

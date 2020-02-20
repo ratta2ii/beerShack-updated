@@ -33,10 +33,9 @@ function Navbar() {
 
   return (
     <div style={navContainer}>
-
       <ul>
         <Link to="/"><li style={homeLink} >Home</li></Link>
-        <Link to="/products"><li style={listElements} >Products</li></Link>
+        <Link to="/beerlist"><li style={listElements} >Products</li></Link>
         <Link to="/newbeer"><li style={listElements} >Add Beer</li></Link>
         <Link to="/"><li style={listElements} >FAQ</li></Link>
         <Link to="/"><li style={listElements} >Sign In</li></Link>
